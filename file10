@@ -1,0 +1,20 @@
+CalendarTable = 
+VAR MinDate = DATE(2010, 1, 1) // Set your desired start date
+VAR MaxDate = DATE(2024, 12, 31) // Set your desired end date
+
+RETURN
+    ADDCOLUMNS(
+        CALENDAR(MinDate, MaxDate), // Added comma here
+        
+        "Year", YEAR([Date]),
+        "Month Number", MONTH([Date]),
+        "Month Name", FORMAT([Date], "MMMM"),
+        "Quarter", QUARTER([Date]),
+        "Year Month", FORMAT([Date], "YYYY-MM"),
+        "Year Quarter", FORMAT([Date], "YYYY") & "-Q" & FORMAT([Date], "Q"),
+        "Year Month Name", FORMAT([Date], "YYYY-MMMM"),
+        "Year Quarter Name", FORMAT([Date], "YYYY") & "-Q" & FORMAT([Date], "Q"),
+        "Weekday", WEEKDAY([Date]),
+        "Day", DAY([Date]),
+        "Day Name", FORMAT([Date], "dddd")
+    )
